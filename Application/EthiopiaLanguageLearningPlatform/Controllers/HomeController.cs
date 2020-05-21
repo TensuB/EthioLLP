@@ -17,13 +17,22 @@ namespace EthiopiaLanguageLearningPlatform.Controllers
         public HomeController(ILogger<HomeController> logger, CharactersDbContext dbContext)
         {
             _logger = logger;
+
             _dbContext = dbContext;
+
+            var test = "stop here";
         }
 
         public IActionResult Index()
         {
             var vm = new HomeViewModel();
-            vm.Characters = _dbContext.Characters.ToList();
+
+            if(_dbContext.Character != null && _dbContext.Character.ToList().Count() > 0)
+            {
+                var chars = _dbContext.Character;
+
+                vm.Characters = _dbContext.Character.ToList<Character>();
+            }            
 
             return View(vm);
         }

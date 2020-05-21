@@ -4,7 +4,6 @@ namespace EthiopiaLanguageLearningPlatform.Models
 {
     public class HomeViewModel
     {
-
         public HomeViewModel()
         {
             Characters = new List<Character>();

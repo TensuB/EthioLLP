@@ -12,6 +12,6 @@ namespace EthiopiaLanguageLearningPlatform.Models
 
         }
 
-        public DbSet<Character> Characters { get; set; }
+        public DbSet<Character> Character { get; set; }
     }
 }

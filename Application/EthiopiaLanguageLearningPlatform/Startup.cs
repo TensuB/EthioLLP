@@ -21,7 +21,10 @@ namespace EthiopiaLanguageLearningPlatform
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<CharactersDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DbContextConnectionStrings")));           
+
+            var connectionString = Configuration.GetConnectionString("CharactersDbContext");
+
+            services.AddDbContext<CharactersDbContext>(options => options.UseSqlServer(connectionString));           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
