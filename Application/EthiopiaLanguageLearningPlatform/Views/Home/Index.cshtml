@@ -1,8 +1,18 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome to the EF Core enabled Ethio LLP land!</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <hr/>
+    <div>
+        @{ 
+            foreach(var character in Model.Characters)
+            {
+                <p>Current Amharic character:  @character.Name</p>
+            }
+        }
+    </div>
+    
 </div>

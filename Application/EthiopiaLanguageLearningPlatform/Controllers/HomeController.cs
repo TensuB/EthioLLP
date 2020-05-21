@@ -12,15 +12,20 @@ namespace EthiopiaLanguageLearningPlatform.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private CharactersDbContext _dbContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, CharactersDbContext dbContext)
         {
             _logger = logger;
+            _dbContext = dbContext;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var vm = new HomeViewModel();
+            vm.Characters = _dbContext.Characters.ToList();
+
+            return View(vm);
         }
 
         public IActionResult Privacy()
